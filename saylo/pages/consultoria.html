@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>@import url('https://fonts.cdnfonts.com/css/geist-sans');body,h1,h2,h3,h4,button,a{font-family:'Geist',ui-sans-serif,system-ui,-apple-system,sans-serif!important}</style>
+  <meta name="description" content="SAYLO Consultoría — RevOps y ventas, RevOps y automatización para equipos B2B que quieren crecer con control.">
+  <title>SAYLO Consultoría — RevOps</title>
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/nav-footer.css">
+
+  <style>
+  /* ═══════════════════════════════════════
+     SAYLO STUDIO — Consultoría
+     Identidad: mismos tokens, tono editorial
+  ═══════════════════════════════════════ */
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --pad: 80px;
+    --pad-sm: 32px;
+    --pad-xs: 20px;
+  }
+
+  /* ── TOP BAR ── */
+  .studio-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--pad);
+    height: 64px;
+    background: rgba(8,8,16,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--bd);
+  }
+
+  .studio-bar__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+  .studio-bar__logo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); }
+  .studio-bar__divider { width: 1px; height: 20px; background: var(--bd-2); }
+  .studio-bar__sub {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .studio-bar__links { display: flex; align-items: center; gap: 32px; }
+  .studio-bar__links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .studio-bar__links a:hover { color: #fff; }
+  .studio-bar__cta {
+    background: var(--signal);
+    color: #fff !important;
+    padding: 9px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .studio-bar__cta:hover { background: var(--signal-l) !important; }
+
+  /* ── HERO ── */
+  /* ── HERO — 2 columns: editorial left + live panel right ── */
+  .s-hero {
+    padding: 0;
+    background: var(--void);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    border-bottom: 1px solid var(--bd);
+  }
+
+  .s-hero__left {
+    padding: 140px var(--pad) 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    border-right: 1px solid var(--bd);
+  }
+
+  /* Subtle grain overlay left col */
+  .s-hero__left::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 0% 60%, rgba(255,77,0,0.07) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .s-hero__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp .5s ease forwards .1s;
+    position: relative;
+  }
+  .s-hero__kicker::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--signal);
+    flex-shrink: 0;
+  }
+
+  .s-hero__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(44px, 5.5vw, 76px);
+    letter-spacing: -4.5px;
+    line-height: 0.94;
+    color: #fff;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .2s;
+    position: relative;
+  }
+  .s-hero__title em { font-style: italic; color: var(--signal); }
+
+  .s-hero__sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 440px;
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .3s;
+    position: relative;
+  }
+
+  /* Stats row under subtitle */
+  .s-hero__stats {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--bd);
+    border-bottom: 1px solid var(--bd);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .38s;
+    position: relative;
+  }
+  .s-hero__stat {
+    padding: 20px 28px 20px 0;
+    margin-right: 28px;
+    border-right: 1px solid var(--bd);
+  }
+  .s-hero__stat:last-child { border-right: none; margin-right: 0; }
+  .s-hero__stat-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -2px;
+    color: var(--signal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .s-hero__stat-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  /* Form */
+  .s-hero__form-wrap {
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .46s;
+    position: relative;
+  }
+  .s-hero__form-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+  }
+
+  .s-hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .54s;
+    position: relative;
+  }
+
+  /* ── RIGHT PANEL — CPQ live demo ── */
+  .s-hero__right {
+    background: var(--void-2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .s-hero__right::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,77,0,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .s-hero__panel-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .25s;
+  }
+  .s-hero__panel-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--bd-2);
+  }
+
+  /* Voice input box */
+  .hero-voice {
+    background: var(--void-3);
+    border: 1px solid var(--bd);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .35s;
+  }
+  .hero-voice__icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--signal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 6px rgba(255,77,0,0.12);
+  }
+  .hero-voice__text {
+    font-size: 13px;
+    color: rgba(255,255,255,.6);
+    line-height: 1.6;
+    font-style: italic;
+    padding-top: 6px;
+  }
+  .hero-voice__text strong { color: #fff; font-style: normal; font-weight: 600; }
+
+  /* Arrow connector */
+  .hero-arrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 22px;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .45s;
+  }
+  .hero-arrow__line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--signal), transparent);
+  }
+  .hero-arrow__label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--signal);
+  }
+
+  /* CPQ result card */
+  .hero-result {
+    background: var(--void);
+    border: 1px solid rgba(255,77,0,.2);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .55s;
+    box-shadow: 0 0 0 1px rgba(255,77,0,.08), 0 24px 48px rgba(0,0,0,.4);
+  }
+  .hero-result__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: rgba(255,77,0,.06);
+    border-bottom: 1px solid rgba(255,77,0,.12);
+  }
+  .hero-result__title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--signal);
+  }
+  .hero-result__badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--pulse);
+  }
+  .hero-result__badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--pulse);
+    animation: pulse-dot 1.4s ease infinite;
+  }
+  .hero-result__body { padding: 16px 18px; }
+  .hero-result__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--bd);
+    font-size: 12px;
+  }
+  .hero-result__row:last-child { border-bottom: none; }
+  .hero-result__key { color: var(--text-secondary); }
+  .hero-result__val { color: #fff; font-weight: 600; }
+  .hero-result__val--accent { color: var(--signal); }
+  .hero-result__val--green { color: var(--pulse); }
+
+  .hero-result__footer {
+    padding: 12px 18px;
+    background: rgba(0,229,160,.05);
+    border-top: 1px solid rgba(0,229,160,.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--pulse);
+    font-weight: 600;
+  }
+
+  /* Metrics strip */
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1px;
+    background: var(--bd);
+    border: 1px solid var(--bd);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-top: 16px;
+    opacity: 0;
+    animation: fadeUp .55s ease forwards .65s;
+  }
+  .hero-metric {
+    background: var(--void-3);
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .hero-metric__num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -1.5px;
+    color: var(--signal);
+    line-height: 1;
+  }
+  .hero-metric__label {
+    font-size: 9px;
+    color: var(--text-secondary);
+    line-height: 1.3;
+    margin-top: 4px;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(.7); }
+  }
+
+  /* ── PROBLEM SECTION ── */
+  .s-problem {
+    padding: 100px var(--pad);
+    background: var(--void-2);
+    border-top: 1px solid var(--bd);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .s-problem__left {}
+  .s-problem__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 24px;
+  }
+  .s-problem__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(32px, 3.5vw, 48px);
+    letter-spacing: -2.5px;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .s-problem__body {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 420px;
+  }
+
+  .s-problem__right {}
+  .s-problem__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--bd);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .s-problem__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--bd);
+    transition: background .2s;
+  }
+  .s-problem__item:last-child { border-bottom: none; }
+  .s-problem__item:hover { background: rgba(255,77,0,0.04); }
+  .s-problem__icon {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    background: var(--signal-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .s-problem__item-text {
+    font-size: 14px;
+    color: rgba(255,255,255,.65);
+    line-height: 1.55;
+  }
+  .s-problem__item-text strong {
+    color: rgba(255,255,255,.9);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ── HOW WE WORK ── */
+  .s-how {
+    padding: 100px var(--pad);
+    background: var(--void);
+    border-top: 1px solid var(--bd);
+  }
+
+  .s-how__head {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .s-how__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 18px;
+  }
+  .s-how__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: -3px;
+    line-height: 1;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto 16px;
+  }
+  .s-how__sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .s-how__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--bd);
+    border: 1px solid var(--bd);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .s-step {
+    background: var(--void-2);
+    padding: 48px 40px;
+    position: relative;
+    transition: background .25s;
+  }
+  .s-step:hover { background: var(--void-3); }
+
+  .s-step__num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 72px;
+    letter-spacing: -5px;
+    color: rgba(255,255,255,.05);
+    line-height: 1;
+    margin-bottom: 28px;
+  }
+
+  .s-step__icon {
+    width: 44px; height: 44px;
+    background: var(--signal-dim);
+    border: 1px solid rgba(255,77,0,.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .s-step__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -.5px;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .s-step__text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .s-step__bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--signal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s ease;
+  }
+  .s-step:hover .s-step__bar { transform: scaleX(1); }
+
+  /* ── RESULTS ── */
+  .s-results {
+    padding: 100px var(--pad);
+    background: var(--void-2);
+    border-top: 1px solid var(--bd);
+  }
+
+  .s-results__head {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .s-results__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 18px;
+  }
+  .s-results__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: -3px;
+    color: #fff;
+  }
+
+  .s-results__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--bd);
+    border: 1px solid var(--bd);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .s-result {
+    background: var(--void);
+    padding: 52px 44px;
+    text-align: center;
+    transition: background .25s;
+  }
+  .s-result:hover { background: rgba(255,77,0,0.03); }
+
+  .s-result__num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(52px, 5.5vw, 72px);
+    letter-spacing: -5px;
+    line-height: 1;
+    color: var(--signal);
+    margin-bottom: 12px;
+  }
+  .s-result__label {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -.2px;
+  }
+  .s-result__sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ── SERVICES ── */
+  .s-services {
+    padding: 100px var(--pad);
+    background: var(--void);
+    border-top: 1px solid var(--bd);
+  }
+
+  .s-services__head {
+    margin-bottom: 64px;
+  }
+  .s-services__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 18px;
+  }
+  .s-services__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: -3px;
+    color: #fff;
+    max-width: 640px;
+    line-height: 1.02;
+  }
+  .s-services__title em { font-style: italic; color: var(--signal); }
+
+  .s-services__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--bd);
+    border: 1px solid var(--bd);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .s-service {
+    background: var(--void-2);
+    padding: 48px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: background .25s;
+    position: relative;
+  }
+  .s-service:hover { background: var(--void-3); }
+  .s-service:hover .s-service__arrow { opacity: 1; transform: translate(0,0); }
+
+  .s-service__icon {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .s-service__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -.8px;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .s-service__text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+
+  .s-service__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .s-service__tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--signal);
+    padding: 4px 10px;
+    border: 1px solid rgba(255,77,0,.2);
+    border-radius: var(--radius-pill);
+    background: var(--signal-dim);
+  }
+
+  .s-service__arrow {
+    position: absolute;
+    top: 44px; right: 44px;
+    font-size: 18px;
+    color: var(--signal);
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: all .25s ease;
+  }
+
+  /* ── WHY US ── */
+  .s-why {
+    padding: 100px var(--pad);
+    background: var(--void-2);
+    border-top: 1px solid var(--bd);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .s-why__left {}
+  .s-why__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 24px;
+  }
+  .s-why__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(34px, 3.5vw, 50px);
+    letter-spacing: -2.5px;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .s-why__title em { font-style: italic; color: var(--signal); }
+  .s-why__body {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 400px;
+  }
+
+  .s-why__right {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .s-why__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--bd);
+  }
+  .s-why__item:last-child { border-bottom: none; }
+
+  .s-why__item-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--signal);
+    flex-shrink: 0;
+    padding-top: 2px;
+    min-width: 24px;
+  }
+  .s-why__item-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: -.3px;
+  }
+  .s-why__item-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* ── FAQ ── */
+  .s-faq {
+    padding: 100px var(--pad);
+    background: var(--void);
+    border-top: 1px solid var(--bd);
+  }
+
+  .s-faq__inner {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .s-faq__head {
+    position: sticky;
+    top: 84px;
+  }
+  .s-faq__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 18px;
+  }
+  .s-faq__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: -2px;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .s-faq__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--signal);
+    text-decoration: none;
+    margin-top: 8px;
+    transition: gap .2s;
+  }
+  .s-faq__cta:hover { gap: 12px; }
+
+  .s-faq__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .s-faq-item {
+    border-bottom: 1px solid var(--bd);
+  }
+  .s-faq-item:first-child { border-top: 1px solid var(--bd); }
+
+  .s-faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -.3px;
+    text-align: left;
+    cursor: pointer;
+    transition: color .2s;
+  }
+  .s-faq-q:hover { color: var(--signal); }
+  .s-faq-q[aria-expanded="true"] { color: var(--signal); }
+
+  .s-faq-icon {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    transition: transform .25s ease, color .2s;
+    line-height: 1;
+  }
+  .s-faq-q[aria-expanded="true"] .s-faq-icon {
+    transform: rotate(45deg);
+    color: var(--signal);
+  }
+
+  .s-faq-a {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .35s ease, padding .3s ease;
+  }
+  .s-faq-a.open {
+    max-height: 300px;
+    padding-bottom: 20px;
+  }
+  .s-faq-a p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  /* ── CTA FINAL ── */
+  .s-cta {
+    padding: 120px var(--pad);
+    background: var(--void-2);
+    border-top: 1px solid var(--bd);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .s-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,77,0,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .s-cta__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .s-cta__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(44px, 5.5vw, 72px);
+    letter-spacing: -4px;
+    line-height: 0.97;
+    color: #fff;
+    max-width: 680px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .s-cta__title em { font-style: italic; color: var(--signal); }
+  .s-cta__sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-bottom: 44px;
+    position: relative;
+  }
+
+  .s-cta__form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 460px;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+  .s-cta__input {
+    flex: 1;
+    padding: 14px 18px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--bd-2);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .s-cta__input:focus { border-color: var(--signal); }
+  .s-cta__input::placeholder { color: var(--text-secondary); }
+  .s-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 32px;
+    background: var(--signal);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .2s, transform .2s;
+    margin: 8px 0 24px;
+    text-decoration: none;
+  }
+  .s-cta__btn:hover { background: var(--signal-l); transform: translateY(-1px); }
+  .s-cta__note {
+    font-size: 12px;
+    color: var(--text-secondary);
+    position: relative;
+  }
+
+  /* ── FOOTER ── */
+  .s-footer {
+    padding: 48px var(--pad);
+    background: var(--void);
+    border-top: 1px solid var(--bd);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .s-footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+  }
+  .s-footer__logo-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--signal); opacity: .5; }
+  .s-footer__copy {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .s-footer__back {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color .2s;
+  }
+  .s-footer__back:hover { color: var(--signal); }
+
+  /* ── HERO FORM ── */
+  .s-hero__form {
+    display: flex;
+    gap: 8px;
+    max-width: 440px;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp .6s ease forwards .5s;
+  }
+  .s-hero__input {
+    flex: 1;
+    padding: 14px 18px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid var(--bd-2);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+    font-family: var(--font-body);
+  }
+  .s-hero__input:focus { border-color: var(--signal); }
+  .s-hero__input::placeholder { color: var(--text-secondary); }
+  .s-hero__submit {
+    padding: 14px 22px;
+    background: var(--signal);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .2s, transform .2s;
+  }
+  .s-hero__submit:hover { background: var(--signal-l); transform: translateY(-1px); }
+  @media (max-width: 600px) {
+    .s-hero__form { flex-direction: column; max-width: 100%; }
+    .s-hero__submit { width: 100%; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .r { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+  .r.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── SERVICES GRID update: 2 cols ── */
+  .s-services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ── CPQ FEATURED CARD ── */
+  .s-service--cpq {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    background: var(--void-3);
+    border-top: 2px solid var(--signal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .s-service--cpq::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,77,0,0.09) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .s-service--cpq__badge {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    background: var(--signal);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .s-service--cpq__left {
+    padding-top: 12px;
+  }
+
+  .s-service--cpq__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 12px 22px;
+    background: var(--signal);
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    transition: background .2s, gap .2s;
+  }
+  .s-service--cpq__cta:hover { background: var(--signal-l); gap: 12px; }
+
+  /* Flow diagram */
+  .s-service--cpq__right {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .s-service--cpq__flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--void-2);
+    border: 1px solid var(--bd);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    position: relative;
+  }
+
+  .cpq-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .cpq-step__icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .cpq-step--voice .cpq-step__icon  { background: rgba(255,77,0,.15);  border: 1px solid rgba(255,77,0,.25); }
+  .cpq-step--config .cpq-step__icon { background: rgba(0,212,255,.08);  border: 1px solid rgba(0,212,255,.15); }
+  .cpq-step--sign .cpq-step__icon   { background: rgba(0,229,160,.08);  border: 1px solid rgba(0,229,160,.15); }
+
+  .cpq-step__label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+  }
+
+  .cpq-step__desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .cpq-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    padding: 0 4px;
+  }
+
+  .cpq-arrow__line {
+    width: 28px;
+    height: 1px;
+    background: var(--bd-2);
+  }
+
+  .cpq-arrow__tip {
+    font-size: 16px;
+    color: var(--signal);
+    margin-top: -14px;
+    font-weight: 700;
+  }
+
+  .cpq-arrow__time {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--signal);
+    margin-top: 6px;
+  }
+
+  /* Stats row inside CPQ */
+  .cpq-stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--bd);
+    border: 1px solid var(--bd);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .cpq-stat {
+    background: var(--void-2);
+    padding: 20px 18px;
+    text-align: center;
+  }
+
+  .cpq-stat__num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -2px;
+    color: var(--signal);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .cpq-stat__label {
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1200px) {
+    .s-hero { min-height: auto; }
+    .s-hero__right { padding: 80px 40px; }
+  }
+  @media (max-width: 1024px) {
+    :root { --pad: 32px; }
+    .studio-bar__links { display: none; }
+    /* Hero stacks */
+    .s-hero { grid-template-columns: 1fr; min-height: auto; }
+    .s-hero__left { padding: 120px var(--pad) 60px; border-right: none; border-bottom: 1px solid var(--bd); }
+    .s-hero__right { padding: 60px var(--pad); }
+    /* Other sections */
+    .s-problem { grid-template-columns: 1fr; gap: 48px; }
+    .s-why { grid-template-columns: 1fr; gap: 48px; }
+    .s-faq__inner { grid-template-columns: 1fr; gap: 40px; }
+    .s-faq__head { position: static; }
+    .s-how__steps { grid-template-columns: 1fr; }
+    .s-results__grid { grid-template-columns: 1fr 1fr; }
+    .s-services__grid { grid-template-columns: 1fr; }
+    .s-service--cpq { grid-column: span 1; grid-template-columns: 1fr; gap: 40px; }
+    .s-service--cpq__flow { flex-direction: column; gap: 16px; }
+    .cpq-arrow { flex-direction: row; }
+    .cpq-arrow__line { width: 20px; height: 1px; }
+  }
+  @media (max-width: 600px) {
+    :root { --pad: 20px; }
+    .s-hero__left { padding: 100px var(--pad) 48px; }
+    .s-hero__stats { flex-wrap: wrap; }
+    .s-hero__stat { min-width: 100px; }
+    .s-results__grid { grid-template-columns: 1fr; }
+    .s-cta__form { flex-direction: column; }
+    .s-cta__btn { width: 100%; }
+    .s-footer { flex-direction: column; gap: 16px; text-align: center; }
+    .hero-metrics { grid-template-columns: repeat(3,1fr); }
+  }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div id="cur"></div>
+<div id="cur-r"></div>
+
+<header class="studio-bar">
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="../index.html" class="studio-bar__logo">
+      <div class="studio-bar__logo-dot"></div>
+      SAYLO
+    </a>
+    <div class="studio-bar__divider"></div>
+    <span class="studio-bar__sub">Consultoría</span>
+  </div>
+  <nav class="studio-bar__links">
+    <a href="#como-trabajamos">Cómo trabajamos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#faq">FAQ</a>
+    <a href="contacto.html?plan=Consultoría RevOps" class="studio-bar__cta">Cuéntanos tu proyecto →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="s-hero">
+
+  <!-- LEFT: editorial copy -->
+  <div class="s-hero__left">
+    <div class="s-hero__kicker">SAYLO Consultoría · RevOps</div>
+    <h1 class="s-hero__title">
+      Tu equipo vende.<br>
+      <em>El sistema,<br>también.</em>
+    </h1>
+    <p class="s-hero__sub">
+      Diseñamos e implementamos sistemas de ventas, CPQ y operaciones para equipos B2B que quieren crecer con control — no con suerte.
+    </p>
+    <div class="s-hero__stats">
+      <div class="s-hero__stat">
+        <div class="s-hero__stat-num">+127%</div>
+        <div class="s-hero__stat-label">ROI medio en proyectos</div>
+      </div>
+      <div class="s-hero__stat">
+        <div class="s-hero__stat-num">90s</div>
+        <div class="s-hero__stat-label">De voz a propuesta firmada</div>
+      </div>
+      <div class="s-hero__stat">
+        <div class="s-hero__stat-num">–40%</div>
+        <div class="s-hero__stat-label">Ciclo de venta</div>
+      </div>
+    </div>
+    <div class="s-hero__form-wrap">
+      <div class="s-hero__form-label">Primera llamada gratuita</div>
+      <form class="s-hero__form" id="hero-form" novalidate>
+        <input type="text" name="contact" class="s-hero__input" placeholder="Tu email o teléfono" aria-label="Email o teléfono" required>
+        <button type="submit" class="s-hero__submit">Solicitar llamada →</button>
+      </form>
+      <div id="hero-success" style="display:none;color:var(--pulse);font-size:14px;margin-top:12px;">✓ Perfecto. Te llamamos en menos de 24h.</div>
+    </div>
+    <div class="s-hero__actions">
+      <a href="#servicios" class="btn btn--text" style="font-size:13px;">Ver servicios ↓</a>
+      <a href="#como-trabajamos" class="btn btn--text" style="font-size:13px;">Cómo trabajamos ↓</a>
+    </div>
+  </div>
+
+  <!-- RIGHT: CPQ live panel -->
+  <div class="s-hero__right">
+    <div class="s-hero__panel-label">CPQ en tiempo real</div>
+
+    <div class="hero-voice">
+      <div class="hero-voice__icon">🎙️</div>
+      <div class="hero-voice__text">
+        "<strong>Prepara cotización para TechCorp:</strong> 8 licencias Enterprise, soporte 24h, descuento del 12% por volumen. Envíala firmada."
+      </div>
+    </div>
+
+    <div class="hero-arrow">
+      <div class="hero-arrow__line"></div>
+      <div class="hero-arrow__label">SAYLO + CPQ · 2 segundos</div>
+    </div>
+
+    <div class="hero-result">
+      <div class="hero-result__head">
+        <div class="hero-result__title">Cotización #4082 · TechCorp S.L.</div>
+        <div class="hero-result__badge">Generada</div>
+      </div>
+      <div class="hero-result__body">
+        <div class="hero-result__row">
+          <span class="hero-result__key">Producto</span>
+          <span class="hero-result__val">Enterprise · 8 licencias</span>
+        </div>
+        <div class="hero-result__row">
+          <span class="hero-result__key">Precio base</span>
+          <span class="hero-result__val">€3.840/mes</span>
+        </div>
+        <div class="hero-result__row">
+          <span class="hero-result__key">Descuento volumen</span>
+          <span class="hero-result__val hero-result__val--accent">–12% · €460,80</span>
+        </div>
+        <div class="hero-result__row">
+          <span class="hero-result__key">Total</span>
+          <span class="hero-result__val hero-result__val--accent" style="font-size:15px;letter-spacing:-.5px;">€3.379,20/mes</span>
+        </div>
+        <div class="hero-result__row">
+          <span class="hero-result__key">Firma digital</span>
+          <span class="hero-result__val hero-result__val--green">✓ Enviada a cliente</span>
+        </div>
+      </div>
+      <div class="hero-result__footer">
+        ✓ PDF generado · CRM actualizado · Seguimiento en 5d
+      </div>
+    </div>
+
+    <div class="hero-metrics">
+      <div class="hero-metric">
+        <div class="hero-metric__num">90s</div>
+        <div class="hero-metric__label">Voz → firma</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric__num">0</div>
+        <div class="hero-metric__label">Formularios</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric__num">100%</div>
+        <div class="hero-metric__label">CRM sincronizado</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- PROBLEM -->
+<section class="s-problem">
+  <div class="s-problem__left r">
+    <div class="s-problem__eyebrow">El problema real</div>
+    <h2 class="s-problem__title">No creces porque tu sistema te frena.</h2>
+    <p class="s-problem__body">Muchas empresas B2B tienen buenos productos y buenos comerciales — pero crecen con desorden, decisiones a ciegas y procesos que nadie quiere actualizar. El resultado es más esfuerzo, más ruido interno y un crecimiento imposible de predecir.</p>
+  </div>
+  <div class="s-problem__right r" style="transition-delay:.1s">
+    <div class="s-problem__list">
+      <div class="s-problem__item">
+        <div class="s-problem__icon">📊</div>
+        <div class="s-problem__item-text">
+          <strong>Marketing genera leads que ventas no aprovecha</strong>
+          Sin sistema común, los leads se pierden entre equipos desconectados.
+        </div>
+      </div>
+      <div class="s-problem__item">
+        <div class="s-problem__icon">🔍</div>
+        <div class="s-problem__item-text">
+          <strong>Ventas trabaja sin visibilidad ni prioridades</strong>
+          Sin pipeline real, cada comercial improvisa. Los mejores deals se caen.
+        </div>
+      </div>
+      <div class="s-problem__item">
+        <div class="s-problem__icon">🔥</div>
+        <div class="s-problem__item-text">
+          <strong>Operaciones apaga fuegos en vez de escalar</strong>
+          Los procesos manuales consumen el tiempo que debería ir a crecer.
+        </div>
+      </div>
+      <div class="s-problem__item">
+        <div class="s-problem__icon">🗂️</div>
+        <div class="s-problem__item-text">
+          <strong>El CRM es un Excel que sale caro</strong>
+          Herramientas potentes, mal configuradas y peor adoptadas.
+        </div>
+      </div>
+      <div class="s-problem__item">
+        <div class="s-problem__icon">⚠️</div>
+        <div class="s-problem__item-text">
+          <strong>Los datos existen, pero no se pueden usar</strong>
+          Información dispersa, inconsistente y sin contexto para decidir.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="s-how" id="como-trabajamos">
+  <div class="s-how__head r">
+    <div class="s-how__eyebrow">Cómo trabajamos</div>
+    <h2 class="s-how__title">Sistemas que conectan personas, procesos y tecnología.</h2>
+    <p class="s-how__sub">No somos una agencia de herramientas. Somos una consultora de negocio. Primero el diseño, luego la implementación.</p>
+  </div>
+  <div class="s-how__steps r" style="transition-delay:.1s">
+    <div class="s-step">
+      <div class="s-step__bar"></div>
+      <div class="s-step__num">01</div>
+      <div class="s-step__icon">🔎</div>
+      <div class="s-step__title">Analizamos</div>
+      <p class="s-step__text">Auditamos tus procesos de marketing, ventas y operaciones. Entendemos el negocio antes de tocar ninguna herramienta.</p>
+    </div>
+    <div class="s-step">
+      <div class="s-step__bar"></div>
+      <div class="s-step__num">02</div>
+      <div class="s-step__icon">⚡</div>
+      <div class="s-step__title">Diseñamos</div>
+      <p class="s-step__text">Detectamos cuellos de botella, tareas repetitivas y pérdidas de información. Diseñamos el sistema que los elimina.</p>
+    </div>
+    <div class="s-step">
+      <div class="s-step__bar"></div>
+      <div class="s-step__num">03</div>
+      <div class="s-step__icon">🚀</div>
+      <div class="s-step__title">Implementamos</div>
+      <p class="s-step__text">Aplicamos IA, automatización y herramientas como HubSpot o Salesforce de forma personalizada. Con formación y soporte hasta que funciona.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="s-results">
+  <div class="s-results__head r">
+    <div class="s-results__eyebrow">Resultados</div>
+    <h2 class="s-results__title">El objetivo siempre es el mismo.</h2>
+  </div>
+  <div class="s-results__grid r" style="transition-delay:.1s">
+    <div class="s-result">
+      <div class="s-result__num">15h</div>
+      <div class="s-result__label">Ahorradas por comercial</div>
+      <div class="s-result__sub">Cada semana, liberadas de tareas administrativas que no generan valor</div>
+    </div>
+    <div class="s-result">
+      <div class="s-result__num">–30%</div>
+      <div class="s-result__label">Reducción de costes GTM</div>
+      <div class="s-result__sub">Procesos optimizados y recursos trabajando con mayor rentabilidad</div>
+    </div>
+    <div class="s-result">
+      <div class="s-result__num">+127%</div>
+      <div class="s-result__label">ROI medio en proyectos</div>
+      <div class="s-result__sub">Crecimiento predecible, no improvisado. Ingresos que se pueden replicar</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s-services" id="servicios">
+  <div class="s-services__head r">
+    <div class="s-services__eyebrow">Servicios</div>
+    <h2 class="s-services__title">Todo lo que necesita tu equipo para <em>vender mejor.</em></h2>
+  </div>
+  <div class="s-services__grid r" style="transition-delay:.1s">
+
+    <!-- CPQ — featured full-width card — PRIMERO -->
+    <div class="s-service s-service--cpq">
+      <div class="s-service--cpq__badge">Servicio estrella</div>
+      <div class="s-service--cpq__left">
+        <div class="s-service__icon" style="font-size:32px;margin-bottom:20px;">⚡</div>
+        <div class="s-service__title" style="font-size:clamp(22px,2.5vw,32px);letter-spacing:-1.5px;margin-bottom:16px;">CPQ integrado en tu CRM.<br><em style="color:var(--signal);font-style:italic;">De la voz a la firma en 90 segundos.</em></div>
+        <p class="s-service__text" style="max-width:520px;font-size:15px;">Tu comercial habla. SAYLO entiende el pedido. El CPQ lo transforma en una propuesta comercial perfecta — con precios actualizados, descuentos aplicados y productos configurados. El cliente recibe el PDF y firma digitalmente. El CRM se actualiza solo. Todo en menos de 2 minutos, sin formularios.</p>
+        <div class="s-service__tags" style="margin-top:24px;">
+          <span class="s-service__tag">CPQ</span>
+          <span class="s-service__tag">Firma digital</span>
+          <span class="s-service__tag">Configurador de productos</span>
+          <span class="s-service__tag">Precios dinámicos</span>
+          <span class="s-service__tag">CRM sync</span>
+        </div>
+        <a href="contacto.html?plan=CPQ integrado en CRM" class="s-service--cpq__cta">Cuéntanos tu caso →</a>
+      </div>
+      <div class="s-service--cpq__right">
+        <div class="s-service--cpq__flow">
+          <div class="cpq-step cpq-step--voice">
+            <div class="cpq-step__icon">🎙️</div>
+            <div class="cpq-step__label">Voz</div>
+            <div class="cpq-step__desc">"5 licencias Enterprise con soporte 24h y descuento del 15%"</div>
+          </div>
+          <div class="cpq-arrow">
+            <div class="cpq-arrow__line"></div>
+            <div class="cpq-arrow__tip">›</div>
+            <div class="cpq-arrow__time">2s</div>
+          </div>
+          <div class="cpq-step cpq-step--config">
+            <div class="cpq-step__icon">⚙️</div>
+            <div class="cpq-step__label">CPQ</div>
+            <div class="cpq-step__desc">Precio calculado · Descuento validado · PDF generado</div>
+          </div>
+          <div class="cpq-arrow">
+            <div class="cpq-arrow__line"></div>
+            <div class="cpq-arrow__tip">›</div>
+            <div class="cpq-arrow__time">8s</div>
+          </div>
+          <div class="cpq-step cpq-step--sign">
+            <div class="cpq-step__icon">✍️</div>
+            <div class="cpq-step__label">Firma</div>
+            <div class="cpq-step__desc">Cliente firma digitalmente · CRM actualizado · Deal cerrado</div>
+          </div>
+        </div>
+        <div class="cpq-stat-row">
+          <div class="cpq-stat">
+            <div class="cpq-stat__num">90s</div>
+            <div class="cpq-stat__label">De voz a propuesta firmada</div>
+          </div>
+          <div class="cpq-stat">
+            <div class="cpq-stat__num">0</div>
+            <div class="cpq-stat__label">Formularios rellenados</div>
+          </div>
+          <div class="cpq-stat">
+            <div class="cpq-stat__num">–40%</div>
+            <div class="cpq-stat__label">Tiempo de ciclo de venta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-service">
+      <div class="s-service__arrow">→</div>
+      <div class="s-service__icon">🗺️</div>
+      <div class="s-service__title">Auditoría de procesos</div>
+      <p class="s-service__text">Analizamos en profundidad cómo trabajan tus equipos de ventas, marketing y operaciones. Identificamos dónde se pierde tiempo, dinero e información — y te entregamos un plan de acción claro.</p>
+      <div class="s-service__tags">
+        <span class="s-service__tag">Diagnóstico</span>
+        <span class="s-service__tag">Roadmap</span>
+        <span class="s-service__tag">Quick wins</span>
+      </div>
+    </div>
+
+    <div class="s-service">
+      <div class="s-service__arrow">→</div>
+      <div class="s-service__icon">🤖</div>
+      <div class="s-service__title">IA aplicada a ventas</div>
+      <p class="s-service__text">Implementamos inteligencia artificial en los puntos de mayor impacto: cualificación de leads, seguimiento automático, resúmenes de llamadas y generación de propuestas. Sin fricciones para el equipo.</p>
+      <div class="s-service__tags">
+        <span class="s-service__tag">SAYLO</span>
+        <span class="s-service__tag">LLMs</span>
+        <span class="s-service__tag">Automatización</span>
+      </div>
+    </div>
+
+    <div class="s-service">
+      <div class="s-service__arrow">→</div>
+      <div class="s-service__icon">🔗</div>
+      <div class="s-service__title">Implantación CRM</div>
+      <p class="s-service__text">Configuramos e implantamos HubSpot, Salesforce o Pipedrive adaptados a tu proceso de ventas real — no a una plantilla genérica. Incluye migración de datos, formación y seguimiento.</p>
+      <div class="s-service__tags">
+        <span class="s-service__tag">HubSpot</span>
+        <span class="s-service__tag">Salesforce</span>
+        <span class="s-service__tag">Pipedrive</span>
+      </div>
+    </div>
+
+    <div class="s-service">
+      <div class="s-service__arrow">→</div>
+      <div class="s-service__icon">⚙️</div>
+      <div class="s-service__title">RevOps & automatización</div>
+      <p class="s-service__text">Conectamos marketing, ventas y operaciones bajo un mismo sistema. Flujos de trabajo automáticos, reporting en tiempo real y una única fuente de verdad para todo el equipo.</p>
+      <div class="s-service__tags">
+        <span class="s-service__tag">RevOps</span>
+        <span class="s-service__tag">Zapier</span>
+        <span class="s-service__tag">Workflows</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+</section>
+
+<!-- WHY US -->
+<section class="s-why">
+  <div class="s-why__left r">
+    <div class="s-why__eyebrow">Por qué SAYLO Consultoría</div>
+    <h2 class="s-why__title">Venimos del campo.<br><em>No del PowerPoint.</em></h2>
+    <p class="s-why__body">Hemos construido y escalado equipos de ventas B2B en contextos reales — donde los procesos importan, los datos deciden y los errores cuestan dinero. Eso nos da una perspectiva que las consultoras tradicionales no tienen.</p>
+  </div>
+  <div class="s-why__right r" style="transition-delay:.1s">
+    <div class="s-why__item">
+      <div class="s-why__item-num">01</div>
+      <div>
+        <div class="s-why__item-title">Experiencia real en ventas B2B</div>
+        <p class="s-why__item-text">Hemos trabajado con equipos comerciales en SaaS, industria y servicios. Sabemos qué funciona en campo y qué queda bien solo en la presentación.</p>
+      </div>
+    </div>
+    <div class="s-why__item">
+      <div class="s-why__item-num">02</div>
+      <div>
+        <div class="s-why__item-title">Proyectos 100% personalizados</div>
+        <p class="s-why__item-text">No aplicamos metodologías genéricas. Cada proyecto parte del análisis de tu negocio, tu equipo y tus objetivos concretos.</p>
+      </div>
+    </div>
+    <div class="s-why__item">
+      <div class="s-why__item-num">03</div>
+      <div>
+        <div class="s-why__item-title">Resultados desde las primeras semanas</div>
+        <p class="s-why__item-text">No hablamos de proyectos a 2 años vista. Las primeras automatizaciones y quick wins son visibles en pocas semanas desde el inicio.</p>
+      </div>
+    </div>
+    <div class="s-why__item">
+      <div class="s-why__item-num">04</div>
+      <div>
+        <div class="s-why__item-title">Integrado con SAYLO</div>
+        <p class="s-why__item-text">Si tu equipo usa SAYLO, la consultoría potencia el impacto al máximo. Si no, diseñamos el sistema igualmente — con las herramientas que ya tienes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s-faq" id="faq">
+  <div class="s-faq__inner">
+    <div class="s-faq__head r">
+      <div class="s-faq__eyebrow">FAQ</div>
+      <h2 class="s-faq__title">Preguntas frecuentes.</h2>
+      <a href="contacto.html" class="s-faq__cta">¿Más dudas? Escríbenos →</a>
+    </div>
+    <div class="s-faq__list r" style="transition-delay:.1s">
+      <div class="s-faq-item">
+        <button class="s-faq-q" aria-expanded="false">¿Esto es solo para empresas grandes? <span class="s-faq-icon">+</span></button>
+        <div class="s-faq-a"><p>No. Trabajamos con empresas B2B en fase de crecimiento desde equipos de 10 personas hasta organizaciones más consolidadas. El requisito no es el tamaño — es la ambición de crecer mejor y la complejidad operativa que lo acompaña.</p></div>
+      </div>
+      <div class="s-faq-item">
+        <button class="s-faq-q" aria-expanded="false">¿Solo hacéis consultoría o también implementáis? <span class="s-faq-icon">+</span></button>
+        <div class="s-faq-a"><p>Las dos cosas, pero siempre en orden: primero entendemos el negocio y diseñamos el sistema, después implementamos herramientas y automatizaciones. Implantar tecnología sin diseño previo genera más problemas que soluciones.</p></div>
+      </div>
+      <div class="s-faq-item">
+        <button class="s-faq-q" aria-expanded="false">Ya tenemos HubSpot, ¿tiene sentido igualmente? <span class="s-faq-icon">+</span></button>
+        <div class="s-faq-a"><p>Sí, y es uno de los escenarios más habituales. Muchas empresas tienen herramientas potentes mal aprovechadas o mal conectadas. Nuestro trabajo suele centrarse más en ordenar y rediseñar el uso de lo que ya existe que en cambiar todo.</p></div>
+      </div>
+      <div class="s-faq-item">
+        <button class="s-faq-q" aria-expanded="false">¿Cuánto tarda en verse el impacto? <span class="s-faq-icon">+</span></button>
+        <div class="s-faq-a"><p>El diagnóstico aporta claridad desde las primeras semanas. Las primeras automatizaciones generan ahorro de tiempo rápido. Los cambios estructurales se consolidan en semanas o pocos meses — no hablamos de proyectos a 2 años vista.</p></div>
+      </div>
+      <div class="s-faq-item">
+        <button class="s-faq-q" aria-expanded="false">¿Qué tiene que ver SAYLO Consultoría con SAYLO la herramienta? <span class="s-faq-icon">+</span></button>
+        <div class="s-faq-a"><p>SAYLO es la plataforma de voz para comerciales. SAYLO Consultoría es el servicio que diseña el sistema completo alrededor. Funcionan perfectamente juntos — pero cada uno también se puede contratar de forma independiente.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="s-cta" id="contacto">
+  <div class="s-cta__eyebrow">Empieza aquí</div>
+  <h2 class="s-cta__title">Cuéntanos tu proyecto.<br><em>Lo hacemos funcionar.</em></h2>
+  <p class="s-cta__sub">Sin compromiso. Primera llamada gratuita. Respuesta en menos de 24h.</p>
+  <a href="contacto.html?plan=Consultoría RevOps" class="s-cta__btn">Contactar →</a>
+  <p class="s-cta__note">O escríbenos directamente a <a href="mailto:consultoria@saylohub.com" style="color:var(--signal);">consultoria@saylohub.com</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer class="s-footer">
+  <div class="s-footer__logo">
+    <div class="s-footer__logo-dot"></div>
+    SAYLO Consultoría
+  </div>
+  <p class="s-footer__copy">© 2025 SAYLO Technologies S.L.</p>
+  <a href="../index.html" class="s-footer__back">← Volver a SAYLO</a>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════
+   SAYLO Consultoría — Form handling
+   Formspree ID: mkoqlenj → consultoria@saylohub.com
+   Envío 100% automático, sin acción del usuario
+═══════════════════════════════════════ */
+
+const FORMSPREE_URL = 'https://formspree.io/f/mkoqlenj';
+
+async function sendToFormspree(data, formEl, successEl, btnEl) {
+  if (!formEl) return;
+  const originalText = btnEl ? btnEl.textContent : '';
+  if (btnEl) { btnEl.textContent = 'Enviando...'; btnEl.disabled = true; }
+
+  try {
+    const res = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      formEl.style.display = 'none';
+      if (successEl) { successEl.style.display = 'block'; }
+    } else {
+      const err = await res.json();
+      throw new Error(err.error || 'Error en el envío');
+    }
+  } catch(err) {
+    console.error('Formspree error:', err);
+    if (btnEl) { btnEl.textContent = originalText; btnEl.disabled = false; }
+    if (successEl) {
+      successEl.style.display = 'block';
+      successEl.style.color = 'var(--signal)';
+      successEl.textContent = 'Error al enviar. Escríbenos a consultoria@saylohub.com';
+    }
+  }
+}
+
+/* ── Hero form ── */
+document.getElementById('hero-form')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const contact = e.target.contact.value.trim();
+  if (!contact) return;
+  sendToFormspree(
+    {
+      _subject: '🔔 Nuevo contacto — SAYLO Consultoría',
+      Contacto: contact,
+      Origen: 'Hero de la página',
+      Fecha: new Date().toLocaleString('es-ES')
+    },
+    document.getElementById('hero-form'),
+    document.getElementById('hero-success'),
+    e.target.querySelector('button[type="submit"]')
+  );
+});
+
+/* ── CTA final form ── */
+document.getElementById('cta-form')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const email = e.target.email.value.trim();
+  if (!email) return;
+  sendToFormspree(
+    {
+      _subject: '🔔 Nuevo contacto — SAYLO Consultoría',
+      Email: email,
+      Origen: 'CTA final de la página',
+      Fecha: new Date().toLocaleString('es-ES')
+    },
+    document.getElementById('cta-form'),
+    document.getElementById('cta-success'),
+    document.getElementById('cta-btn')
+  );
+});
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.s-faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.s-faq-q').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) { btn.setAttribute('aria-expanded', 'true'); answer.classList.add('open'); }
+  });
+});
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

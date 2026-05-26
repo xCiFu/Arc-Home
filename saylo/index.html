@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>@import url('https://fonts.cdnfonts.com/css/geist-sans');body,h1,h2,h3,h4,button,a{font-family:'Geist',ui-sans-serif,system-ui,-apple-system,sans-serif!important}</style>
+  <meta name="description" content="SAYLO — El asistente de voz para equipos de ventas. Captura, analiza y convierte más con tu voz.">
+  <title>SAYLO — Di lo que necesitas. SAYLO lo hace.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/nav-footer.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/mockups.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<div id="nav-placeholder" data-page=""></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__glow-a"></div>
+  <div class="hero__glow-b"></div>
+  <div class="hero__left">
+    <div class="eyebrow-badge r">
+      <div class="eyebrow-badge__dot"></div>
+      Disponible ahora
+    </div>
+    <h1 class="hero__title r d1">
+      Di lo que<br>necesitas.<br>
+      <em>SAYLO lo hace.</em>
+    </h1>
+    <p class="hero__sub r d2">
+      La plataforma de ventas que funciona con tu voz. Crea contactos, genera cotizaciones y cierra negocios — sin tocar un formulario.
+    </p>
+    <div class="hero__btns r d3">
+      <a href="pages/contacto.html" class="btn btn--primary">
+        Solicitar acceso
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="pages/como-funciona.html" class="btn btn--text">
+        Ver cómo funciona <div class="btn__arrow">→</div>
+      </a>
+    </div>
+    <div class="hero__proof r d4">
+      <div class="hero__avatars">
+        <div class="hero__av">JM</div>
+        <div class="hero__av">AR</div>
+        <div class="hero__av">PS</div>
+        <div class="hero__av">LC</div>
+      </div>
+      <div class="hero__proof-txt">
+        <strong>+240 comerciales</strong> ya en lista de espera.<br>
+        +240 comerciales ya activos.
+      </div>
+    </div>
+  </div>
+  <div class="hero__right">
+    <div class="app-mockup">
+      <div class="app-mockup__topbar">
+        <div class="app-mockup__topbar-left">
+          <div class="app-mockup__avatar">JM</div>
+          <div>
+            <div class="app-mockup__user-name">Javier Morales</div>
+            <div class="app-mockup__user-role">Account Executive</div>
+          </div>
+        </div>
+        <div class="pill pill--live"><div class="pill__dot"></div>ACTIVO</div>
+      </div>
+      <div class="app-mockup__mic-area">
+        <div class="mic-ring-wrap">
+          <div class="mic-ring"></div>
+          <div class="mic-ring mic-ring--outer"></div>
+          <div class="mic-circle">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+        </div>
+        <div class="waveform" aria-hidden="true">
+          <div class="wf-bar"></div><div class="wf-bar"></div><div class="wf-bar"></div>
+          <div class="wf-bar"></div><div class="wf-bar"></div><div class="wf-bar"></div>
+          <div class="wf-bar"></div><div class="wf-bar"></div><div class="wf-bar"></div>
+          <div class="wf-bar"></div><div class="wf-bar"></div>
+        </div>
+        <div class="pill pill--processing" id="heroStatus"><div class="pill__dot"></div>PROCESANDO...</div>
+      </div>
+      <div class="app-mockup__conversation">
+        <div class="bubble bubble--user">
+          <span class="bubble__label">Tú</span>
+          "Cotización para Ana Ruiz de TechCorp, 5 licencias Pro a 299€, descuento 10%, envía por email."
+        </div>
+        <div class="bubble bubble--ai">
+          <span class="bubble__label">SAYLO</span>
+          <span class="chk">✓</span> Cotización #3041 · 1.345,50€/mes<br>
+          <span class="chk">✓</span> Email enviado a ana@techcorp.es<br>
+          <span class="chk">✓</span> CRM actualizado · seguimiento en 7d
+        </div>
+      </div>
+      <div class="app-mockup__actions">
+        <div class="action-chip"><span class="action-chip__icon">👤</span>Nuevo contacto</div>
+        <div class="action-chip"><span class="action-chip__icon">📄</span>Cotización</div>
+        <div class="action-chip"><span class="action-chip__icon">📊</span>Pipeline</div>
+        <div class="action-chip"><span class="action-chip__icon">📅</span>Seguimiento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="band">
+  <div class="band__label">INTEGRA CON</div>
+  <div class="band__track-wrap">
+    <div class="band__track">
+      <span class="band__item">Gmail</span><span class="band__item">Outlook</span>
+      <span class="band__item">Slack</span><span class="band__item">WhatsApp</span>
+      <span class="band__item">Stripe</span><span class="band__item">Zapier</span>
+      <span class="band__item">Notion</span><span class="band__item">HubSpot</span>
+      <span class="band__item">Salesforce</span><span class="band__item">Pipedrive</span>
+      <span class="band__item">Gmail</span><span class="band__item">Outlook</span>
+      <span class="band__item">Slack</span><span class="band__item">WhatsApp</span>
+      <span class="band__item">Stripe</span><span class="band__item">Zapier</span>
+      <span class="band__item">Notion</span><span class="band__item">HubSpot</span>
+      <span class="band__item">Salesforce</span><span class="band__item">Pipedrive</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- PILLAR NAV -->
+<nav class="pillar-nav" id="pillarNav" aria-label="Secciones del producto">
+  <button class="pillar-tab active" data-target="s-captura"><span class="tab-num">1</span> Captura</button>
+  <button class="pillar-tab" data-target="s-analiza"><span class="tab-num">2</span> Analiza</button>
+  <button class="pillar-tab" data-target="s-convierte"><span class="tab-num">3</span> Convierte</button>
+</nav>
+
+<!-- PILLAR 1 — CAPTURA -->
+<section class="pillar pillar--1" id="s-captura">
+  <div class="pillar__header r">
+    <div class="pillar__eyebrow"><div class="pillar__eyebrow-dot"></div>01 · Captura</div>
+    <h2 class="pillar__title">Más tiempo vendiendo<br><em>y</em> mejor información.</h2>
+    <p class="pillar__sub">Con SAYLO tienes el poder de un asistente personal en el bolsillo. Habla y tus herramientas se actualizan solas — sin formularios, sin fricciones.</p>
+    <div class="pillar__stats">
+      <div class="p-stat">
+        <div class="p-stat__num"><span class="counter" data-target="73">0</span><span class="p-stat__unit">%</span></div>
+        <div class="p-stat__label">Menos tiempo en tareas admin</div>
+      </div>
+      <div class="p-stat">
+        <div class="p-stat__num"><span class="counter" data-target="40">0</span><span class="p-stat__unit">%</span></div>
+        <div class="p-stat__label">Mejor calidad de datos en CRM</div>
+      </div>
+    </div>
+  </div>
+  <div class="sub-feats">
+
+    <div class="sf r">
+      <div class="sf__copy" data-n="01">
+        <h3>Habla. Tus herramientas se actualizan solas.</h3>
+        <p>Con SAYLO solo hablas. En la app, en el coche, entre visitas. El asistente captura todo con conversación natural — sin formularios, sin fricciones.</p>
+      </div>
+      <div class="sf__visual">
+        <div class="ui-card ui-card--centered">
+          <div class="mic-ring-wrap"><div class="mic-ring"></div><div class="mic-ring mic-ring--outer"></div><div class="mic-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div></div>
+          <div class="waveform" style="height:24px;margin-top:14px;" aria-hidden="true"><div class="wf-bar"></div><div class="wf-bar"></div><div class="wf-bar"></div><div class="wf-bar"></div><div class="wf-bar"></div><div class="wf-bar"></div><div class="wf-bar"></div></div>
+          <div class="pill pill--listening" style="font-size:10px;margin-top:10px;"><div class="pill__dot"></div>Escuchando...</div>
+          <p style="font-size:11px;color:var(--text-secondary);text-align:center;line-height:1.5;margin-top:8px;">App · Llamada · Manos libres</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sf sf--alt r">
+      <div class="sf__copy" data-n="02">
+        <h3>Datos perfectos en tus herramientas. Sin tocar el teclado.</h3>
+        <p>SAYLO rellena HubSpot, Salesforce o Pipedrive en tiempo real. La información correcta, en el campo correcto, siempre.</p>
+      </div>
+      <div class="sf__visual">
+        <div class="ui-card" style="max-width:300px;">
+          <div class="uic-header"><div class="uic-title">HubSpot · Auto-sync</div><div class="pill pill--done" style="font-size:9px;padding:2px 8px;"><div class="pill__dot"></div>Live</div></div>
+          <div class="crm-fields">
+            <div class="crm-row"><span class="crm-key">Empresa</span><span class="crm-val">TechCorp S.L.</span></div>
+            <div class="crm-row"><span class="crm-key">Contacto</span><span class="crm-val">Ana Ruiz</span></div>
+            <div class="crm-row"><span class="crm-key">Valor</span><span class="crm-val" style="color:var(--pulse);">€1.345/mes</span></div>
+            <div class="crm-row"><span class="crm-key">Etapa</span><span class="crm-val" style="color:var(--sky);">Propuesta</span></div>
+          </div>
+          <div style="margin-top:12px;padding:8px 10px;background:rgba(0,229,160,.07);border:1px solid rgba(0,229,160,.18);border-radius:6px;font-size:10px;color:var(--pulse);text-align:center;">✓ Actualizado automáticamente vía voz</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sf r">
+      <div class="sf__copy" data-n="03">
+        <h3>Cotización enviada en 10 segundos.</h3>
+        <p>Di el cliente y las condiciones. PDF generado, email enviado y todo actualizado — todo mientras conduces a tu próxima visita.</p>
+      </div>
+      <div class="sf__visual">
+        <div class="ui-card" style="max-width:300px;">
+          <div class="uic-header"><div class="uic-title">Cotización #3041</div><div class="pill pill--done" style="font-size:9px;padding:2px 8px;"><div class="pill__dot"></div>Enviada</div></div>
+          <div class="conv">
+            <div class="conv-u"><span class="conv-lbl">Tú</span>"5 licencias Pro a 299€, descuento 10%, para TechCorp."</div>
+            <div class="conv-a"><span class="conv-lbl">SAYLO</span>✓ PDF · 1.345,50€/mes · Email enviado · HubSpot actualizado</div>
+          </div>
+          <div style="margin-top:10px;display:flex;align-items:center;gap:7px;padding:7px 9px;background:var(--signal-dim);border:1px solid rgba(255,77,0,.2);border-radius:6px;"><span>⚡</span><span style="font-size:10px;color:var(--signal-l);">Tiempo total: <strong>1.8 segundos</strong></span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PILLAR 2
+
+<!-- PILLAR 2
+
+<!-- PILLAR 2 — ANALIZA -->
+<section class="pillar pillar--2" id="s-analiza">
+  <div class="pillar__header r">
+    <div class="pillar__eyebrow"><div class="pillar__eyebrow-dot"></div>02 · Analiza</div>
+    <h2 class="pillar__title">Visibilidad total<br>del mercado. <em>En tiempo real.</em></h2>
+    <p class="pillar__sub">Centraliza el conocimiento colectivo de tu equipo y conviértelo en inteligencia de negocio. Toma decisiones basadas en datos reales, no suposiciones.</p>
+    <div class="pillar__stats">
+      <div class="p-stat">
+        <div class="p-stat__num"><span class="counter" data-target="38">0</span><span class="p-stat__unit">%</span></div>
+        <div class="p-stat__label">Mayor tasa de cierre</div>
+      </div>
+      <div class="p-stat">
+        <div class="p-stat__num"><span class="counter" data-target="2">0</span><span class="p-stat__unit">x</span></div>
+        <div class="p-stat__label">Velocidad del ciclo de ventas</div>
+      </div>
+    </div>
+  </div>
+  <div class="sub-feats">
+
+    <div class="sf r">
+      <div class="sf__copy" data-n="01">
+        <h3>Pipeline siempre al día. Sin que nadie lo actualice.</h3>
+        <p>Cada conversación de voz actualiza el pipeline automáticamente. Los managers ven el estado real del negocio en cada momento.</p>
+      </div>
+      <div class="sf__visual">
+        <div class="ui-card" style="max-width:320px;">
+          <div class="uic-header"><div class="uic-title">Pipeline · Live</div><div class="pill pill--live" style="font-size:9px;padding:2px 8px;"><div class="pill__dot"></div>Live</div></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;">
+            <div style="text-align:center;"><div style="font-size:9px;color:var(--text-secondary);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Total</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-1.5px;color:var(--signal);">€284k</div><div style="font-size:9px;color:var(--pulse);">↑ +16%</div></div>
+            <div style="text-align:center;"><div style="font-size:9px;color:var(--text-secondary);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Propuestas</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-1.5px;color:#fff;">12</div><div style="font-size:9px;color:var(--pulse);">↑ +4</div></div>
+            <div style="text-align:center;"><div style="font-size:9px;color:var(--text-secondary);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Cierre</div><div style="font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-1.5px;color:#fff;">38%</div><div style="font-size:9px;color:var(--pulse);">↑ +6pp</div></div>
+          </div>
+          <div class="mini-pipeline">
+            <div class="mini-col"><div class="mini-col-head mch-new">Nuevo</div><div class="mini-card"><div class="mc-name">TechCorp</div><div class="mc-val">€35k</div><div class="mc-bar"><div class="mc-fill" style="width:70%;background:var(--signal);"></div></div></div></div>
+            <div class="mini-col"><div class="mini-col-head mch-prop">Propuesta</div><div class="mini-card"><div class="mc-name">Inovtec</div><div class="mc-val">€349k</div><div class="mc-bar"><div class="mc-fill" style="width:50%;background:var(--sky);"></div></div></div></div>
+            <div class="mini-col"><div class="mini-col-head mch-won">Ganado</div><div class="mini-card"><div class="mc-name">Retail</div><div class="mc-val">€12k</div><div class="mc-bar"><div class="mc-fill" style="width:100%;background:var(--pulse);"></div></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sf sf--alt r">
+      <div class="sf__copy" data-n="02">
+        <h3>Tendencias e insights, sin leer una nota.</h3>
+        <p>Objeciones frecuentes, competidores mencionados, oportunidades emergentes — SAYLO los detecta solo en cada interacción.</p>
+      </div>
+      <div class="sf__visual">
+        <div class="ui-card" style="max-width:300px;">
+          <div class="uic-header"><div class="uic-title">Insights · Esta semana</div></div>
+          <div class="insight-rows">
+            <div class="ins-bar-row"><div class="ins-bar-label"><span>Interés plan anual</span><span style="color:var(--pulse);">+34%</span></div><div class="ins-bar-track"><div class="ins-bar-fill" style="width:74%;background:var(--pulse);"></div></div></div>
+            <div class="ins-bar-row"><div class="ins-bar-label"><span>Objeción: precio</span><span style="color:var(--signal);">+12%</span></div><div class="ins-bar-track"><div class="ins-bar-fill" style="width:42%;background:var(--signal);"></div></div></div>
+            <div class="ins-bar-row"><div class="ins-bar-label"><span>Competidor</span><span style="color:var(--sky);">8×</span></div><div class="ins-bar-track"><div class="ins-bar-fill" style="width:28%;background:var(--sky);"></div></div></div>
+          </div>
+          <div class="ins-alert" style="margin-top:12px;">⚑ Revisar propuesta de valor — objeción de precio al alza.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PILLAR 3
+
+<!-- PILLAR 3
+
+<!-- PILLAR 3 — CONVIERTE -->
+<section class="pillar pillar--3" id="s-convierte">
+  <div class="pillar__header r">
+    <div class="pillar__eyebrow"><div class="pillar__eyebrow-dot"></div>03 · Convierte</div>
+    <h2 class="pillar__title">Convierte tu equipo<br>en <em>top performers.</em></h2>
+    <p class="pillar__sub">Usa datos reales de campo para llevar a tu equipo al siguiente nivel. Replica lo que funciona y estandariza la excelencia en toda la organización.</p>
+    <div class="pillar__stats">
+      <div class="p-stat">
+        <div class="p-stat__num"><span class="counter" data-target="5">0</span><span class="p-stat__unit">h</span></div>
+        <div class="p-stat__label">Más tiempo de venta activa / semana</div>
+      </div>
+      <div class="p-stat">
+        <div class="p-stat__num"><span class="counter" data-target="30">0</span><span class="p-stat__unit">%</span></div>
+        <div class="p-stat__label">Ciclos de venta más rápidos</div>
+      </div>
+    </div>
+  </div>
+  <div class="sub-feats">
+
+    <div class="sf r">
+      <div class="sf__copy" data-n="01">
+        <h3>Coaching con datos reales. No con intuiciones.</h3>
+        <p>Detecta patrones, identifica áreas de mejora y lleva a cada comercial al éxito. Optimiza a nivel individual o de equipo.</p>
+      </div>
+      <div class="sf__visual">
+        <div class="ui-card" style="max-width:300px;">
+          <div class="uic-header"><div class="uic-title">Performance del equipo</div><div class="pill pill--live" style="font-size:9px;padding:2px 8px;"><div class="pill__dot"></div>Live</div></div>
+          <div class="rep-list">
+            <div class="rep-row"><div class="rep-av" style="background:linear-gradient(135deg,var(--signal),var(--signal-l));">JM</div><div class="rep-info"><div class="rep-name">Javier M.</div><div class="rep-bar-wrap"><div class="rep-bar-fill" style="width:94%;background:var(--pulse);"></div></div></div><div class="rep-score" style="color:var(--pulse);">94</div></div>
+            <div class="rep-row"><div class="rep-av" style="background:linear-gradient(135deg,rgba(255,77,0,.6),rgba(255,122,64,.6));">AR</div><div class="rep-info"><div class="rep-name">Ana R.</div><div class="rep-bar-wrap"><div class="rep-bar-fill" style="width:81%;background:var(--signal);"></div></div></div><div class="rep-score" style="color:var(--signal);">81</div></div>
+            <div class="rep-row"><div class="rep-av" style="background:linear-gradient(135deg,rgba(255,77,0,.35),rgba(255,122,64,.35));">PS</div><div class="rep-info"><div class="rep-name">Pablo S.</div><div class="rep-bar-wrap"><div class="rep-bar-fill" style="width:67%;background:rgba(255,77,0,.4);"></div></div></div><div class="rep-score" style="color:rgba(255,122,64,.7);">67</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sf sf--alt r">
+      <div class="sf__copy" data-n="02">
+        <h3>Replica lo que funciona. En todo el equipo.</h3>
+        <p>El checklist dinámico guía al comercial con las preguntas correctas en el momento justo — cuando la información está fresca.</p>
+      </div>
+      <div class="sf__visual">
+        <div class="ui-card" style="max-width:300px;">
+          <div class="uic-header"><div class="uic-title">Checklist · Visita TechCorp</div></div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--bd);font-size:12px;"><span style="color:var(--pulse);flex-shrink:0;font-weight:700;">✓</span><span style="color:rgba(255,255,255,.7);">¿Qué objeciones surgieron?</span></div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--bd);font-size:12px;"><span style="color:var(--pulse);flex-shrink:0;font-weight:700;">✓</span><span style="color:rgba(255,255,255,.7);">¿Cuál es el presupuesto disponible?</span></div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--bd);font-size:12px;"><span style="color:var(--signal);flex-shrink:0;font-weight:700;">→</span><span style="color:rgba(255,255,255,.5);">¿Quién toma la decisión final?</span></div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;font-size:12px;"><span style="color:rgba(255,255,255,.2);flex-shrink:0;">○</span><span style="color:rgba(255,255,255,.28);">¿Cuál es el plazo de decisión?</span></div>
+          </div>
+          <div style="margin-top:10px;padding:8px 10px;background:rgba(255,77,0,.08);border:1px solid rgba(255,77,0,.15);border-radius:6px;font-size:10px;color:var(--signal-l);">⚡ SAYLO pregunta en el momento ideal</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GLOBAL METRICS
+
+<!-- GLOBAL METRICS
+
+<!-- GLOBAL METRICS -->
+<div class="global-metrics">
+  <div class="gm r"><div class="gm__num gm__num--orange"><span class="counter" data-target="73">0</span>%</div><div class="gm__label">Menos tiempo en<br>tareas administrativas</div></div>
+  <div class="gm r d1"><div class="gm__num gm__num--white">10s</div><div class="gm__label">Para enviar<br>una cotización</div></div>
+  <div class="gm r d2"><div class="gm__num gm__num--orange"><span class="counter" data-target="38">0</span>%</div><div class="gm__label">Mayor tasa de cierre<br>media de clientes</div></div>
+  <div class="gm r d3"><div class="gm__num gm__num--white">240+</div><div class="gm__label">Comerciales<br>en lista de espera</div></div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="testi-section__head r">
+    <div class="section-eyebrow">Testimonios</div>
+    <h2 class="section-title">Nuestros usuarios<br>adoran SAYLO.</h2>
+  </div>
+  <div class="testi-track-outer">
+    <div class="testi-track">
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"Ahora tengo visibilidad real de lo que pasa en el campo. Los reportes están rellenos de verdad, no a medias."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,var(--signal),var(--signal-l));">LC</div><div><div class="testi-card__name">Laura C.</div><div class="testi-card__role">Head of Sales · Distribución</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"El riesgo de olvidar tareas ha bajado a cero. Mando todo inmediatamente después de la visita con SAYLO."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,rgba(255,77,0,.7),rgba(255,122,64,.7));">MP</div><div><div class="testi-card__name">Miguel P.</div><div class="testi-card__role">Account Manager · Farma</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"La implementación de SAYLO no solo nos ha hecho más eficientes. Ha redefinido cómo interactuamos con los clientes."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,rgba(255,77,0,.5),rgba(255,122,64,.5));">CG</div><div><div class="testi-card__name">Carlos G.</div><div class="testi-card__role">Field Sales Director · FMCG</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"Antes perdía dos horas al día actualizando todo. Ahora lo hago en el coche, hablando. Llego con todo actualizado."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,var(--signal),var(--signal-l));">JM</div><div><div class="testi-card__name">Javier M.</div><div class="testi-card__role">Director Comercial · Industrial</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"Mis comerciales lo adoptaron el primer día. No tuve que convencer a nadie. Es que hablar es lo que saben hacer mejor."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,rgba(255,77,0,.6),rgba(255,122,64,.6));">AR</div><div><div class="testi-card__name">Ana R.</div><div class="testi-card__role">VP Sales · SaaS B2B</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"Mis cotizaciones llegan al cliente mientras aún estoy en la reunión. La diferencia en ratio de cierre ha sido brutal."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,rgba(255,77,0,.4),rgba(255,122,64,.4));">PS</div><div><div class="testi-card__name">Pablo S.</div><div class="testi-card__role">Freelance · Consultoría IT</div></div></div></div>
+      <!-- loop duplicate -->
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"Ahora tengo visibilidad real de lo que pasa en el campo. Los reportes están rellenos de verdad, no a medias."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,var(--signal),var(--signal-l));">LC</div><div><div class="testi-card__name">Laura C.</div><div class="testi-card__role">Head of Sales · Distribución</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"El riesgo de olvidar tareas ha bajado a cero. Mando todo inmediatamente después de la visita con SAYLO."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,rgba(255,77,0,.7),rgba(255,122,64,.7));">MP</div><div><div class="testi-card__name">Miguel P.</div><div class="testi-card__role">Account Manager · Farma</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"La implementación de SAYLO no solo nos ha hecho más eficientes. Ha redefinido cómo interactuamos con los clientes."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,rgba(255,77,0,.5),rgba(255,122,64,.5));">CG</div><div><div class="testi-card__name">Carlos G.</div><div class="testi-card__role">Field Sales Director · FMCG</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"Antes perdía dos horas al día actualizando todo. Ahora lo hago en el coche, hablando. Llego con todo actualizado."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,var(--signal),var(--signal-l));">JM</div><div><div class="testi-card__name">Javier M.</div><div class="testi-card__role">Director Comercial · Industrial</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"Mis comerciales lo adoptaron el primer día. No tuve que convencer a nadie. Es que hablar es lo que saben hacer mejor."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,rgba(255,77,0,.6),rgba(255,122,64,.6));">AR</div><div><div class="testi-card__name">Ana R.</div><div class="testi-card__role">VP Sales · SaaS B2B</div></div></div></div>
+      <div class="testi-card"><div class="testi-card__stars">★★★★★</div><div class="testi-card__q">"Mis cotizaciones llegan al cliente mientras aún estoy en la reunión. La diferencia en ratio de cierre ha sido brutal."</div><div class="testi-card__author"><div class="testi-card__av" style="background:linear-gradient(135deg,rgba(255,77,0,.4),rgba(255,122,64,.4));">PS</div><div><div class="testi-card__name">Pablo S.</div><div class="testi-card__role">Freelance · Consultoría IT</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integrations">
+  <div class="section-eyebrow r">Integraciones</div>
+  <h2 class="section-title r d1">Se conecta con las<br>herramientas que ya usas.</h2>
+  <p class="section-sub r d2" style="margin-bottom:0;">SAYLO no reemplaza tu stack. Lo mejora. Conexión en minutos, sin configuraciones complejas ni migraciones.</p>
+  <div class="int-grid r d2">
+    <div class="int-card"><div class="int-card__ico">🟠</div><div class="int-card__name">HubSpot</div><div class="int-card__type">CRM</div></div>
+    <div class="int-card"><div class="int-card__ico">☁️</div><div class="int-card__name">Salesforce</div><div class="int-card__type">CRM</div></div>
+    <div class="int-card"><div class="int-card__ico">🎯</div><div class="int-card__name">Pipedrive</div><div class="int-card__type">CRM</div></div>
+    <div class="int-card"><div class="int-card__ico">📧</div><div class="int-card__name">Gmail</div><div class="int-card__type">Email</div></div>
+    <div class="int-card"><div class="int-card__ico">📮</div><div class="int-card__name">Outlook</div><div class="int-card__type">Email</div></div>
+    <div class="int-card"><div class="int-card__ico">💬</div><div class="int-card__name">Slack</div><div class="int-card__type">Mensajería</div></div>
+    <div class="int-card"><div class="int-card__ico">📱</div><div class="int-card__name">WhatsApp</div><div class="int-card__type">Mensajería</div></div>
+    <div class="int-card"><div class="int-card__ico">💳</div><div class="int-card__name">Stripe</div><div class="int-card__type">Pagos</div></div>
+    <div class="int-card"><div class="int-card__ico">⚡</div><div class="int-card__name">Zapier</div><div class="int-card__type">Automatización</div></div>
+    <div class="int-card"><div class="int-card__ico">📋</div><div class="int-card__name">Notion</div><div class="int-card__type">Docs</div></div>
+  </div>
+</section>
+
+<!-- PRICING 4 PLANES -->
+<section class="home-pricing">
+  <div class="hp-bg-glow"></div>
+  <div class="hp-inner">
+    <div class="hp-head r">
+      <div class="section-eyebrow">Precios</div>
+      <h2 class="section-title">Simple.<br><em>Sin sorpresas.</em></h2>
+      <p class="section-sub">Empieza gratis y escala cuando tu equipo lo necesite.<br>Reserva una demo y te lo enseñamos en 30 minutos.</p>
+    </div>
+    <div class="hp-toggle r d1">
+      <button class="hp-toggle-btn hp-toggle-btn--active" id="hpMonthly">Mensual</button>
+      <button class="hp-toggle-btn" id="hpAnnual">Anual <span class="hp-save-badge">–20%</span></button>
+    </div>
+    <div class="hp-plans r d2">
+
+      <div class="hp-plan">
+        <div class="hp-plan__name">Starter</div>
+        <div class="hp-plan__price-row">
+          <span class="hp-plan__currency">€</span>
+          <span class="hp-plan__amount" data-monthly="0" data-annual="0">0</span>
+        </div>
+        <div class="hp-plan__period">para siempre · 1 usuario</div>
+        <div class="hp-plan__desc">Perfecta para probar SAYLO y comprobar el impacto en tu trabajo diario.</div>
+        <a href="pages/contacto.html?plan=Starter" class="hp-plan__btn hp-plan__btn--outline">Empezar gratis</a>
+        <ul class="hp-plan__feats">
+          <li><span class="hp-chk">✓</span>50 comandos de voz / mes</li>
+          <li><span class="hp-chk">✓</span>1 integración CRM</li>
+          <li><span class="hp-chk">✓</span>Cotizaciones básicas</li>
+          <li><span class="hp-chk hp-chk--off">–</span>Pipeline en tiempo real</li>
+          <li><span class="hp-chk hp-chk--off">–</span>Insights de equipo</li>
+        </ul>
+      </div>
+
+      <div class="hp-plan hp-plan--hot">
+        <div class="hp-plan__badge">Más popular</div>
+        <div class="hp-plan__name">Pro</div>
+        <div class="hp-plan__price-row">
+          <span class="hp-plan__currency">€</span>
+          <span class="hp-plan__amount" data-monthly="49" data-annual="39">49</span>
+        </div>
+        <div class="hp-plan__period">/ usuario / mes</div>
+        <div class="hp-plan__desc">El plan favorito de equipos en activo. Todo lo que necesitas para vender sin fricción.</div>
+        <a href="pages/contacto.html?plan=Pro" class="hp-plan__btn hp-plan__btn--primary">Solicitar acceso →</a>
+        <ul class="hp-plan__feats">
+          <li><span class="hp-chk">✓</span>Comandos de voz ilimitados</li>
+          <li><span class="hp-chk">✓</span>3 integraciones CRM</li>
+          <li><span class="hp-chk">✓</span>Cotizaciones + PDF automático</li>
+          <li><span class="hp-chk">✓</span>Pipeline en tiempo real</li>
+          <li><span class="hp-chk hp-chk--off">–</span>Insights de equipo</li>
+        </ul>
+      </div>
+
+      <div class="hp-plan">
+        <div class="hp-plan__name">Business</div>
+        <div class="hp-plan__price-row">
+          <span class="hp-plan__currency">€</span>
+          <span class="hp-plan__amount" data-monthly="99" data-annual="79">99</span>
+        </div>
+        <div class="hp-plan__period">/ usuario / mes</div>
+        <div class="hp-plan__desc">Para equipos que quieren inteligencia de negocio real y coaching basado en datos de campo.</div>
+        <a href="pages/contacto.html?plan=Business" class="hp-plan__btn hp-plan__btn--outline">Ver detalles</a>
+        <ul class="hp-plan__feats">
+          <li><span class="hp-chk">✓</span>Todo en Pro</li>
+          <li><span class="hp-chk">✓</span>Integraciones ilimitadas</li>
+          <li><span class="hp-chk">✓</span>Insights de equipo</li>
+          <li><span class="hp-chk">✓</span>Análisis de pérdidas</li>
+          <li><span class="hp-chk">✓</span>Coaching individual</li>
+        </ul>
+      </div>
+
+    </div>
+    <p class="hp-note r d3">¿Necesitas más de 20 usuarios? <a href="mailto:sales@saylo.io">Contacta con ventas →</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-home">
+  <div class="faq-home__inner">
+    <div class="faq-home__head r">
+      <div class="section-eyebrow">Preguntas frecuentes</div>
+      <h2 class="section-title">Todo lo que<br>necesitas saber.</h2>
+      <a href="pages/precios.html" class="btn btn--text" style="margin-top:24px;">Ver comparativa completa <span class="btn__arrow">→</span></a>
+    </div>
+    <div class="faq-home__list r d1">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Necesito cambiar mi CRM actual?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>No. SAYLO se conecta con HubSpot, Salesforce y Pipedrive en minutos mediante API. Tus datos, tu estructura, tu pipeline — todo sigue igual. SAYLO solo añade la capa de voz encima.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Cuánto tarda la implementación?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>La integración técnica tarda menos de 10 minutos. El onboarding completo del equipo, incluyendo formación, se hace en una sesión de 45 minutos. Los primeros resultados son visibles desde el primer día.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Funciona en el coche o en manos libres?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Sí, es uno de los casos de uso más comunes. Los comerciales de campo usan SAYLO entre visitas, conectado al Bluetooth del coche o con auriculares. Nada de mirar el móvil, nada de escribir.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Qué pasa con la privacidad de los datos?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>SAYLO cumple con GDPR. El audio se procesa en tiempo real y no se almacena. Los datos van directamente a tu CRM bajo tus permisos y configuraciones actuales. Tú controlas qué datos se guardan y dónde.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Funciona con acentos y diferentes formas de hablar?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Sí. SAYLO está entrenado con variantes del español de España y Latinoamérica, y mejora continuamente con el uso. Cuanto más lo usa tu equipo, más preciso se vuelve con vuestro vocabulario y jerga comercial.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Hay límite de comandos de voz en el plan Pro?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>No. En el plan Pro los comandos son ilimitados. Solo el plan Starter tiene un límite de 50 al mes — suficiente para probar el producto, pero diseñado para que veas el valor y escales.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta__glow"></div>
+  <div class="cta__inner">
+    <div class="section-eyebrow r" style="display:flex;justify-content:center;margin-bottom:16px;">Reserva tu demo</div>
+    <h2 class="r d1">Deja de<br>administrar.<br><em>Empieza a vender.</em></h2>
+    <p class="r d2">Únete a los primeros comerciales que trabajan sin fricción.</p>
+    <div class="cta__form r d3">
+      <a href="pages/contacto.html" class="cta__submit" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">Reservar demo →</a>
+    </div>
+    <p class="cta__note r d4">Primera llamada gratuita · Respuesta en 24h</p>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/partials.js"></script>
+<script src="js/main.js"></script>
+<script>
+const tabs    = document.querySelectorAll('.pillar-tab');
+const anchors = ['s-captura','s-analiza','s-convierte'].map(id => document.getElementById(id));
+function syncTabs() {
+  let active = 0;
+  anchors.forEach((el, i) => { if (el && el.getBoundingClientRect().top <= 150) active = i; });
+  tabs.forEach((t, i) => t.classList.toggle('active', i === active));
+}
+window.addEventListener('scroll', syncTabs, { passive: true });
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const el = document.getElementById(tab.dataset.target);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.target, t0 = performance.now(), dur = 1600;
+    const step = now => { const p = Math.min((now-t0)/dur,1); el.textContent = Math.round((1-Math.pow(1-p,3))*target); if(p<1) requestAnimationFrame(step); };
+    requestAnimationFrame(step); counterObs.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+const heroStatus = document.getElementById('heroStatus');
+const states = [{cls:'pill--listening',txt:'Escuchando...'},{cls:'pill--processing',txt:'Procesando...'},{cls:'pill--done',txt:'Completado ✓'}];
+let si = 0;
+setInterval(() => { si=(si+1)%states.length; heroStatus.className=`pill ${states[si].cls}`; heroStatus.innerHTML=`<div class="pill__dot"></div> ${states[si].txt}`; }, 2800);
+
+const hpAmounts = document.querySelectorAll('.hp-plan__amount[data-monthly]');
+const hpPeriods = document.querySelectorAll('.hp-plan__period');
+document.getElementById('hpMonthly')?.addEventListener('click', function() {
+  this.classList.add('hp-toggle-btn--active');
+  document.getElementById('hpAnnual').classList.remove('hp-toggle-btn--active');
+  hpAmounts.forEach(el => { el.textContent = el.dataset.monthly; });
+  hpPeriods.forEach(el => { if(el.textContent.includes('facturado')) el.textContent='/ usuario / mes'; });
+});
+document.getElementById('hpAnnual')?.addEventListener('click', function() {
+  this.classList.add('hp-toggle-btn--active');
+  document.getElementById('hpMonthly').classList.remove('hp-toggle-btn--active');
+  hpAmounts.forEach(el => { el.textContent = el.dataset.annual; });
+  hpPeriods.forEach(el => { if(el.textContent==='/ usuario / mes') el.textContent='/ usuario / mes · facturado anualmente'; });
+});
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    // Close all
+    document.querySelectorAll('.faq-q').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    // Open clicked if it was closed
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      answer.classList.add('open');
+    }
+  });
+});
+</script>
+</body>
+</html>

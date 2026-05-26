@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>@import url('https://fonts.cdnfonts.com/css/geist-sans');body,h1,h2,h3,h4,button,a{font-family:'Geist',ui-sans-serif,system-ui,-apple-system,sans-serif!important}</style>
+  <meta name="description" content="Planes y precios de SAYLO. Empieza gratis y escala cuando quieras.">
+  <title>Precios — SAYLO</title>
+
+  
+  
+  
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/nav-footer.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/mockups.css">
+
+  <style>
+    /* Page-specific overrides for subpages */
+    .page-hero {
+      padding: 160px 80px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--void);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,77,0,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-hero h1 {
+      font-size: clamp(48px, 6vw, 80px);
+      letter-spacing: -4px;
+      line-height: 0.95;
+      margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .page-hero h1 em { font-style: normal; color: var(--signal); }
+    .page-hero p {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 1024px) {
+      .page-hero { padding: 140px 32px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder" data-page="precios"></div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="section-eyebrow r" style="justify-content:center;display:flex;margin-bottom:16px;">Precios</div>
+    <h1 class="r d1">Simple.<br><em>Sin sorpresas.</em></h1>
+    <p class="r d2">Empieza gratis. Escala cuando quieras. Cancela cuando quieras.</p>
+  </div>
+
+  <!-- PRICING -->
+  <section class="pricing" style="padding-top:0;">
+    <div class="pricing__header r">
+      <div><!-- spacer --></div>
+      <div class="pricing__toggle">
+        <div class="toggle-wrap">
+          <button class="toggle-opt active">Mensual</button>
+          <button class="toggle-opt">Anual</button>
+        </div>
+        <span class="toggle-save">−20%</span>
+      </div>
+    </div>
+
+    <div class="pricing__plans r d1">
+
+      <!-- STARTER -->
+      <div class="plan">
+        <div class="plan__name">Starter</div>
+        <div class="plan__price-row">
+          <div class="plan__currency">€</div>
+          <div class="plan__amount">0</div>
+        </div>
+        <div class="plan__period">para siempre · 1 usuario</div>
+        <div class="plan__desc">Perfecto para probar SAYLO y empezar a ver el impacto en tu día a día.</div>
+        <hr class="plan__divider">
+        <ul class="plan__feats">
+          <li><span class="chk">✓</span> 50 comandos de voz / mes</li>
+          <li><span class="chk">✓</span> Cotizaciones básicas en PDF</li>
+          <li><span class="chk">✓</span> 1 integración CRM</li>
+          <li><span class="chk">✓</span> App móvil</li>
+          <li class="dim"><span class="chk">–</span> Reportes automáticos</li>
+          <li class="dim"><span class="chk">–</span> Integraciones avanzadas</li>
+          <li class="dim"><span class="chk">–</span> Soporte prioritario</li>
+        </ul>
+        <a href="contacto.html?plan=Starter" class="btn btn--outline btn--full">Empezar gratis</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="plan plan--hot">
+        <div class="plan__badge">Más popular</div>
+        <div class="plan__name">Pro</div>
+        <div class="plan__price-row">
+          <div class="plan__currency">€</div>
+          <div class="plan__amount">49</div>
+        </div>
+        <div class="plan__period">/ usuario / mes</div>
+        <div class="plan__desc">Para comerciales que quieren recuperar horas cada semana y cerrar más negocios.</div>
+        <hr class="plan__divider">
+        <ul class="plan__feats">
+          <li><span class="chk">✓</span> Comandos de voz ilimitados</li>
+          <li><span class="chk">✓</span> Cotizaciones con firma digital</li>
+          <li><span class="chk">✓</span> Todas las integraciones CRM</li>
+          <li><span class="chk">✓</span> Reporting automático</li>
+          <li><span class="chk">✓</span> App móvil + web dashboard</li>
+          <li><span class="chk">✓</span> Multiidioma</li>
+          <li><span class="chk">✓</span> Soporte por chat</li>
+        </ul>
+        <a href="contacto.html?plan=Pro" class="btn btn--primary btn--full">Empezar con Pro →</a>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="plan">
+        <div class="plan__name">Enterprise</div>
+        <div class="plan__price-row">
+          <div class="plan__amount plan__amount--text">Medida</div>
+        </div>
+        <div class="plan__period">para equipos de +20 personas</div>
+        <div class="plan__desc">Seguridad enterprise, SLA garantizado y un equipo dedicado a tu éxito.</div>
+        <hr class="plan__divider">
+        <ul class="plan__feats">
+          <li><span class="chk">✓</span> Todo lo del plan Pro</li>
+          <li><span class="chk">✓</span> SSO / SAML</li>
+          <li><span class="chk">✓</span> Integraciones personalizadas</li>
+          <li><span class="chk">✓</span> SLA 99.9% garantizado</li>
+          <li><span class="chk">✓</span> Onboarding dedicado</li>
+          <li><span class="chk">✓</span> Account manager propio</li>
+          <li><span class="chk">✓</span> Facturación personalizada</li>
+        </ul>
+        <a href="contacto.html?plan=Business" class="btn btn--ghost btn--full">Hablar con ventas</a>
+      </div>
+    </div>
+
+    <p class="pricing__note r d2">¿Dudas sobre qué plan elegir? <a href="contacto.html">Escríbenos →</a></p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="section-eyebrow r">FAQ</div>
+    <h2 class="section-title r d1">Preguntas sobre precios.</h2>
+    <div class="faq__grid">
+      <div class="faq__item r">
+        <div class="faq__q">¿Puedo cambiar de plan en cualquier momento? <span>+</span></div>
+        <div class="faq__a">Sí. Puedes subir o bajar de plan en cualquier momento. Los cambios se aplican inmediatamente y se prorratean en tu siguiente factura.</div>
+      </div>
+      <div class="faq__item r d1">
+        <div class="faq__q">¿Qué pasa cuando acabo los 50 comandos del plan Starter? <span>+</span></div>
+        <div class="faq__a">Recibirás una notificación cuando llegues al 80%. Puedes actualizar a Pro en cualquier momento para continuar sin interrupciones.</div>
+      </div>
+      <div class="faq__item r d2">
+        <div class="faq__q">¿El plan anual se factura de una vez? <span>+</span></div>
+        <div class="faq__a">Sí, el plan anual se factura de una vez al inicio del periodo con un descuento del 20% respecto al precio mensual.</div>
+      </div>
+      <div class="faq__item r d3">
+        <div class="faq__q">¿Hay periodo de prueba en el plan Pro? <span>+</span></div>
+        <div class="faq__a">Sí. Tienes 14 días de acceso completo al plan Pro. Reserva una demo y te lo configuramos todo.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta__glow"></div>
+    <div class="cta__inner">
+      <div class="section-eyebrow r" style="display:flex;justify-content:center;margin-bottom:16px;">Empieza hoy</div>
+      <h2 class="r d1">Deja de<br>administrar.<br><em>Empieza a vender.</em></h2>
+      <p class="r d2">30 minutos de demo. Te enseñamos todo en vivo.</p>
+      <div class="cta__form r d3">
+        <a href="contacto.html" class="cta__submit" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">Reservar demo →</a>
+      </div>
+      <p class="cta__note r d4">Primera llamada gratuita · Respuesta en 24h</p>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/partials.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

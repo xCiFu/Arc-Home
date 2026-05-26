@@ -1,0 +1,264 @@
+/* ═══════════════════════════════════════════
+   SAYLO — UI Mockups
+   App phone mockup + Dashboard styles
+═══════════════════════════════════════════ */
+
+/* ─── PHONE APP MOCKUP ─── */
+.app-mockup {
+  width: 100%;
+  max-width: 420px;
+  background: var(--void-2);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 40px 80px rgba(0, 0, 0, 0.7),
+    0 0 60px rgba(255, 77, 0, 0.08);
+}
+
+/* Top bar */
+.app-mockup__topbar {
+  background: var(--void-3);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--bd);
+}
+
+.app-mockup__topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-mockup__avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--signal), var(--signal-l));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+}
+
+.app-mockup__user-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.app-mockup__user-role { font-size: 11px; color: var(--text-secondary); }
+
+/* Mic area */
+.app-mockup__mic-area {
+  padding: 28px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.mic-ring-wrap {
+  position: relative;
+  width: 88px; height: 88px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.mic-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 77, 0, 0.25);
+  animation: ring-pulse 2s ease-in-out infinite;
+}
+
+.mic-ring--outer {
+  inset: -24px;
+  border: 1px solid rgba(255, 77, 0, 0.10);
+  animation-delay: 0.5s;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50%       { transform: scale(1.05); opacity: 1; }
+}
+
+.mic-circle {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--signal), var(--signal-l));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 32px rgba(255, 77, 0, 0.45);
+  position: relative;
+  z-index: 1;
+}
+
+.mic-circle svg { width: 28px; height: 28px; }
+
+.mic-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--signal-l);
+  font-weight: 500;
+}
+
+/* Conversation bubbles */
+.app-mockup__conversation {
+  padding: 0 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bubble {
+  padding: 12px 14px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.bubble__label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 600;
+}
+
+.bubble--user {
+  background: rgba(255, 77, 0, 0.10);
+  border: 1px solid rgba(255, 77, 0, 0.18);
+  border-radius: 4px 14px 14px 4px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.bubble--user .bubble__label { color: var(--signal-l); }
+
+.bubble--ai {
+  background: rgba(0, 229, 160, 0.07);
+  border: 1px solid rgba(0, 229, 160, 0.18);
+  border-radius: 14px 4px 4px 14px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.bubble--ai .bubble__label { color: var(--pulse); }
+.bubble--ai .chk { color: var(--pulse); font-weight: 600; }
+
+/* Quick action chips */
+.app-mockup__actions {
+  padding: 0 16px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.action-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  transition: all var(--transition);
+}
+
+.action-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: var(--bd-2);
+}
+
+.action-chip__icon { font-size: 14px; }
+
+/* ─── DASHBOARD MOCKUP ─── */
+.dashboard {
+  background: var(--void-3);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.dashboard__bar {
+  background: var(--void-2);
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--bd);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard__dots { display: flex; gap: 5px; }
+
+.dashboard__dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+}
+
+.dashboard__title {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dashboard__body { padding: 18px; }
+
+/* KPI row */
+.dashboard__kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+/* Pipeline */
+.dashboard__pipeline-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.dashboard__pipeline-cols { display: flex; gap: 8px; }
+
+.pipeline-col { flex: 1; }
+
+/* Voice indicator strip */
+.dashboard__voice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  background: rgba(255, 77, 0, 0.08);
+  border: 1px solid rgba(255, 77, 0, 0.16);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.dashboard__voice-ico {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--signal);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  animation: mic-glow 2s ease-in-out infinite;
+}
+
+@keyframes mic-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 77, 0, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(255, 77, 0, 0); }
+}
+
+.dashboard__voice-text {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dashboard__voice-text strong { color: #fff; font-weight: 500; }

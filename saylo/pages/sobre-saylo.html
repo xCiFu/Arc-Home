@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>@import url('https://fonts.cdnfonts.com/css/geist-sans');body,h1,h2,h3,h4,button,a{font-family:'Geist',ui-sans-serif,system-ui,-apple-system,sans-serif!important}</style>
+  <meta name="description" content="La historia detrás de SAYLO — por qué construimos la plataforma de ventas por voz.">
+  <title>Sobre SAYLO — La plataforma que te escucha</title>
+
+  
+  
+  
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/nav-footer.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/mockups.css">
+
+  <style>
+    /* ── Page hero ── */
+    .about-hero {
+      padding: 160px 80px 100px;
+      position: relative; overflow: hidden;
+      background: var(--void);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      bottom: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,77,0,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .about-hero h1 {
+      font-size: clamp(44px, 5vw, 72px);
+      letter-spacing: -3.5px; line-height: 0.95;
+      margin-bottom: 24px;
+    }
+    .about-hero h1 em { font-style: normal; color: var(--signal); }
+    .about-hero__sub {
+      font-size: 17px; font-weight: 300;
+      color: var(--text-secondary); line-height: 1.75;
+      max-width: 480px;
+    }
+    .about-hero__right {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .about-stat {
+      background: var(--void-2);
+      border: 1px solid var(--bd);
+      border-radius: var(--radius-md);
+      padding: 28px 32px;
+      display: flex; gap: 20px; align-items: center;
+      transition: all var(--transition);
+    }
+    .about-stat:hover { border-color: var(--bd-2); background: var(--void-3); }
+    .about-stat__num {
+      font-family: var(--font-display);
+      font-weight: 800; font-size: 40px;
+      letter-spacing: -2px; line-height: 1;
+      flex-shrink: 0; min-width: 80px;
+    }
+    .about-stat:nth-child(1) .about-stat__num { color: var(--signal); }
+    .about-stat:nth-child(2) .about-stat__num { color: var(--pulse); }
+    .about-stat:nth-child(3) .about-stat__num { color: var(--sky); }
+    .about-stat__label { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+    /* ── Origin story ── */
+    .story {
+      background: var(--void-2);
+      padding: 100px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .story__sticky { position: sticky; top: 120px; }
+    .story p {
+      font-size: 16px; color: var(--text-secondary);
+      line-height: 1.85; margin-bottom: 24px;
+    }
+    .story p strong { color: var(--text-primary); font-weight: 500; }
+    .story blockquote {
+      border-left: 3px solid var(--signal);
+      padding-left: 24px;
+      margin: 32px 0;
+    }
+    .story blockquote p {
+      font-size: 20px; font-style: italic;
+      color: rgba(255,255,255,0.8);
+      font-weight: 300; line-height: 1.5;
+    }
+    .story blockquote cite {
+      font-size: 12px; color: var(--text-secondary);
+      letter-spacing: 1.5px; text-transform: uppercase;
+      font-style: normal; margin-top: 8px; display: block;
+    }
+
+    /* ── Values ── */
+    .values {
+      background: var(--void-3);
+      padding: 100px 80px;
+    }
+    .values__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+    .value-card {
+      background: var(--void-2);
+      border: 1px solid var(--bd);
+      padding: 44px 44px;
+      position: relative;
+      transition: background var(--transition);
+    }
+    .value-card:hover { background: var(--void-3); }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+    }
+    .value-card:nth-child(1)::before { background: var(--signal); }
+    .value-card:nth-child(2)::before { background: var(--pulse); }
+    .value-card:nth-child(3)::before { background: var(--sky); }
+    .value-card:nth-child(4)::before { background: var(--violet); }
+    .value-card__icon { font-size: 28px; margin-bottom: 16px; }
+    .value-card h3 {
+      font-size: 22px; letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .value-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ── Team ── */
+    .team {
+      background: var(--void);
+      padding: 100px 80px;
+    }
+    .team__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 64px;
+    }
+    .team-card {
+      background: var(--void-2);
+      border: 1px solid var(--bd);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: all var(--transition);
+    }
+    .team-card:hover { border-color: var(--bd-2); transform: translateY(-3px); }
+    .team-card__av {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 18px;
+      margin-bottom: 18px;
+    }
+    .team-card:nth-child(1) .team-card__av { background: linear-gradient(135deg, var(--signal), var(--signal-l)); }
+    .team-card:nth-child(2) .team-card__av { background: linear-gradient(135deg, var(--sky), #0096CC); }
+    .team-card:nth-child(3) .team-card__av { background: linear-gradient(135deg, var(--pulse), #00A876); }
+    .team-card__name { font-family: var(--font-display); font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+    .team-card__role { font-size: 12px; color: var(--signal-l); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
+    .team-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    @media (max-width: 1024px) {
+      .about-hero { grid-template-columns: 1fr; padding: 140px 32px 80px; }
+      .story { grid-template-columns: 1fr; padding: 80px 32px; }
+      .story__sticky { position: static; }
+      .values, .team { padding: 80px 32px; }
+      .values__grid { grid-template-columns: 1fr; }
+      .team__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .team__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder" data-page="sobre-saylo"></div>
+
+  <!-- ABOUT HERO -->
+  <div class="about-hero">
+    <div>
+      <div class="section-eyebrow r" style="margin-bottom:16px;">Sobre SAYLO</div>
+      <h1 class="r d1">Construimos<br>lo que <em>odiábamos</em><br>que no existía.</h1>
+      <p class="about-hero__sub r d2">SAYLO nació de la frustración de ver cómo los mejores comerciales del mundo perdían horas cada día peleando con herramientas que nadie diseñó para ellos.</p>
+    </div>
+    <div class="about-hero__right r d2">
+      <div class="about-stat">
+        <div class="about-stat__num">40%</div>
+        <div class="about-stat__label">del tiempo de un comercial se pierde en tareas administrativas. No en vender.</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat__num">73%</div>
+        <div class="about-stat__label">de reducción en tiempo administrativo reportada por usuarios activos.</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat__num">2025</div>
+        <div class="about-stat__label">fundada en Madrid con el objetivo de cambiar cómo venden los equipos B2B.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <div class="story">
+    <div class="story__sticky r">
+      <div class="section-eyebrow" style="margin-bottom:12px;">El origen</div>
+      <h2 class="section-title" style="font-size:clamp(32px,3.5vw,48px);">Por qué existe SAYLO.</h2>
+    </div>
+    <div class="r d1">
+      <p>Todo empezó con una conversación en la cafetería de una empresa de ventas B2B en Madrid. Un comercial con 12 años de experiencia — uno de los mejores de su sector — nos contó que pasaba <strong>dos horas al día</strong> actualizando el CRM después de sus visitas.</p>
+
+      <p>No por falta de ganas. Sino porque las herramientas que tenía disponibles requerían clics, formularios, pestañas abiertas, campos que rellenar a mano. En definitiva: eran herramientas diseñadas por ingenieros para ingenieros, no para personas que viven en el coche y en las reuniones.</p>
+
+      <blockquote>
+        <p>"Si pudiera simplemente hablar y que el sistema lo hiciera todo solo, yo podría hacer tres llamadas más al día."</p>
+        <cite>— Javier, Director Comercial. El primer usuario de SAYLO.</cite>
+      </blockquote>
+
+      <p>Esa frase se quedó grabada. Y nos pusimos a construir exactamente eso.</p>
+
+      <p>SAYLO no es otro software de ventas. No queremos que cambies tus herramientas. SAYLO es la <strong>capa de voz</strong> que se pone por encima de lo que ya usas y convierte cualquier instrucción hablada en acciones ejecutadas automáticamente.</p>
+
+      <p>Nuestra misión es simple: <strong>que la tecnología deje de ser un obstáculo para el comercial</strong> y se convierta en su mejor asistente. Uno que siempre está disponible, nunca se equivoca actualizando tus herramientas y no necesita formación.</p>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <section class="values">
+    <div class="section-eyebrow r">Nuestros valores</div>
+    <h2 class="section-title r d1">Lo que guía<br>cada decisión.</h2>
+
+    <div class="values__grid">
+      <div class="value-card r">
+        <div class="value-card__icon">⚡</div>
+        <h3>Velocidad ante todo</h3>
+        <p>Cada segundo importa en ventas. Diseñamos SAYLO para que cada acción sea más rápida que antes. Si algo tarda más de 3 segundos, lo rediseñamos.</p>
+      </div>
+      <div class="value-card r d1">
+        <div class="value-card__icon">🎯</div>
+        <h3>Enfocados en quien vende</h3>
+        <p>No construimos para el director de IT ni para el CFO. Construimos para el comercial que está en el coche a las 7 de la tarde con cinco llamadas más que hacer.</p>
+      </div>
+      <div class="value-card r d2">
+        <div class="value-card__icon">🤝</div>
+        <h3>Tecnología invisible</h3>
+        <p>La mejor interfaz es la que desaparece. SAYLO no debería sentirse como una herramienta — debería sentirse como hablar con alguien que te ayuda sin preguntar cómo.</p>
+      </div>
+      <div class="value-card r d3">
+        <div class="value-card__icon">🔒</div>
+        <h3>Confianza absoluta</h3>
+        <p>Los datos de ventas son críticos. Cada acción de SAYLO es trazable, reversible y auditada. El comercial puede fiar ciegamente en el sistema porque el sistema nunca falla en silencio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team">
+    <div class="section-eyebrow r">El equipo</div>
+    <h2 class="section-title r d1">Las personas<br>detrás de SAYLO.</h2>
+
+    <div class="team__grid">
+      <div class="team-card r">
+        <div class="team-card__av">AM</div>
+        <div class="team-card__name">Alejandro M.</div>
+        <div class="team-card__role">CEO & Co-Founder</div>
+        <p>10 años en ventas B2B. Ex-Director Comercial en dos startups europeas. Construye SAYLO porque vivió el problema en primera persona.</p>
+      </div>
+      <div class="team-card r d1">
+        <div class="team-card__av">LG</div>
+        <div class="team-card__name">Laura G.</div>
+        <div class="team-card__role">CTO & Co-Founder</div>
+        <p>Ingeniera de IA especializada en NLP y procesamiento de voz. Ex-investigadora en la Universidad Politécnica. Diseña el cerebro de SAYLO.</p>
+      </div>
+      <div class="team-card r d2">
+        <div class="team-card__av">MP</div>
+        <div class="team-card__name">Marcos P.</div>
+        <div class="team-card__role">Head of Product</div>
+        <p>Diseñador de producto obsesionado con la fricción cero. Ha trabajado en interfaces de voz y productos B2B durante 8 años.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta__glow"></div>
+    <div class="cta__inner">
+      <div class="section-eyebrow r" style="display:flex;justify-content:center;margin-bottom:16px;">Empieza ahora</div>
+      <h2 class="r d1">Sé de los<br><em>primeros en probarlo.</em></h2>
+      <p class="r d2">250 plazas en la acceso anticipado. Quedan pocas.</p>
+      <div class="cta__form r d3">
+        <a href="contacto.html" class="cta__submit" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">Reservar demo →</a>
+      </div>
+      <p class="cta__note r d4">Primera llamada gratuita · Respuesta en 24h</p>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/partials.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
